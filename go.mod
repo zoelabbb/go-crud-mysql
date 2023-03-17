@@ -1,4 +1,4 @@
-module github.com/jaypc/go-crud
+module github.com/jeypc/go-crud
 
 go 1.20
 
