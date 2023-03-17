@@ -12,6 +12,13 @@
       integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
       crossorigin="anonymous"
     />
+
+    <style>
+      .container {
+        max-width: 650px;
+      }
+    </style>
+
     <title>Golang CRUD</title>
   </head>
   <body>
@@ -20,6 +27,13 @@
       <a href="/pasien" type="button" class="btn btn-sm btn-primary"
         >Lihat Data</a
       >
+
+      {{if .pesan}}
+
+      <div class="alert alert-success">{{.pesan}}</div>
+
+      {{end}}
+
       <hr />
 
       <form action="/pasien/add" method="post" class="row g-3">
@@ -39,11 +53,11 @@
             <option value="2">Perempuan</option>
           </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-4">
           <label for="inputCity" class="form-label">Tempat Lahir</label>
           <input type="text" class="form-control" name="tempat_lahir" />
         </div>
-        <div class="col-md-2">
+        <div class="col-md-4">
           <label for="inputZip" class="form-label">Tanggal Lahir</label>
           <input type="date" class="form-control" name="tanggal_lahir" />
         </div>
@@ -53,10 +67,10 @@
         </div>
         <div class="col-md-12">
           <label class="form-label">Alamat</label>
-          <textarea class="form-control" name="alamat" />
+          <textarea class="form-control" name="alamat"></textarea>
         </div>
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Sign in</button>
+          <button type="submit" class="btn btn-danger btn-block">Simpan</button>
         </div>
       </form>
     </div>

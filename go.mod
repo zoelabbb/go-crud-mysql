@@ -1,4 +1,4 @@
-module github.com/jeypc/go-crud
+module github.com/zoelabbb/go-crud-mysql
 
 go 1.20
 
