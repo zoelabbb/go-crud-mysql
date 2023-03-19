@@ -27,6 +27,7 @@
       <a href="/pasien" type="button" class="btn btn-sm btn-primary"
         >Lihat Data</a
       >
+      <hr />
 
       {{if .pesan}}
 
@@ -34,40 +35,97 @@
 
       {{end}}
 
-      <hr />
-
       <form action="/pasien/add" method="post" class="row g-3">
         <div class="col-md-6">
           <label class="form-label">Nama Lengkap</label>
-          <input type="text" class="form-control" name="nama_lengkap" />
+          <input
+            type="text"
+            class="form-control {{if .validations.NamaLengkap}} is-invalid {{end}} "
+            name="nama_lengkap"
+            value="{{.pasien.NamaLengkap}}"
+          />
+          <div class="invalid-feedback">{{ .validations.NamaLengkap }}</div>
         </div>
         <div class="col-md-6">
           <label class="form-label">NIK</label>
-          <input type="text" class="form-control" name="nik" />
+          <input
+            type="text"
+            class="form-control {{if .validations.NIK}} is-invalid {{end}}"
+            name="nik"
+            value="{{.pasien.NIK}}"
+          />
+          <div class="invalid-feedback">{{ .validations.NIK }}</div>
         </div>
         <div class="col-md-4">
           <label for="inputState" class="form-label">Jenis Kelamin</label>
-          <select name="jenis_kelamin" class="form-select">
+          <select
+            name="jenis_kelamin"
+            class="form-select {{if .validations.JenisKelamin}} is-invalid {{end}}"
+          >
             <option value="">Pilih Jenis Kelamin</option>
-            <option value="1">Laki-laki</option>
-            <option value="2">Perempuan</option>
+            <option
+              {{
+              if
+              eq
+              .pasien.JenisKelamin
+              `1`
+              }}selected{{end}}
+              value="1"
+            >
+              Laki-laki
+            </option>
+            <option
+              {{
+              if
+              eq
+              .pasien.JenisKelamin
+              `2`
+              }}selected{{end}}
+              value="2"
+            >
+              Perempuan
+            </option>
           </select>
+          <div class="invalid-feedback">{{ .validations.JenisKelamin }}</div>
         </div>
         <div class="col-md-4">
           <label for="inputCity" class="form-label">Tempat Lahir</label>
-          <input type="text" class="form-control" name="tempat_lahir" />
+          <input
+            type="text"
+            class="form-control {{if .validations.TempatLahir}} is-invalid {{end}}"
+            name="tempat_lahir"
+            value="{{.pasien.TempatLahir}}"
+          />
+          <div class="invalid-feedback">{{ .validations.TempatLahir }}</div>
         </div>
         <div class="col-md-4">
           <label for="inputZip" class="form-label">Tanggal Lahir</label>
-          <input type="date" class="form-control" name="tanggal_lahir" />
+          <input
+            type="date"
+            class="form-control {{if .validations.TanggalLahir}} is-invalid {{end}}"
+            name="tanggal_lahir"
+            value="{{.pasien.TanggalLahir}}"
+          />
+          <div class="invalid-feedback">{{ .validations.TanggalLahir }}</div>
         </div>
         <div class="col-md-12">
           <label class="form-label">No HP</label>
-          <input type="text" class="form-control" name="no_Hp" />
+          <input
+            type="text"
+            class="form-control {{if .validations.NoHp}} is-invalid {{end}}"
+            name="no_Hp"
+            value="{{.pasien.NoHp}}"
+          />
+          <div class="invalid-feedback">{{ .validations.NoHp }}</div>
         </div>
         <div class="col-md-12">
           <label class="form-label">Alamat</label>
-          <textarea class="form-control" name="alamat"></textarea>
+          <textarea
+            class="form-control {{if .validations.Alamat}} is-invalid {{end}}"
+            name="alamat"
+            value="{{.pasien.Alamat}}"
+          ></textarea>
+          <div class="invalid-feedback">{{ .validations.Alamat }}</div>
         </div>
         <div class="col-12">
           <button type="submit" class="btn btn-danger btn-block">Simpan</button>

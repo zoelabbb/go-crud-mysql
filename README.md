@@ -1,5 +1,6 @@
-# Simple Project CRUD Golang & MySQL
+# Simple Project CRUD Golang & MySQL + Rest API
 
-## Requirement
+## Requirement Install
+
 - MySQL
 - Validator V10
