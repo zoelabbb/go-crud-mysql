@@ -1,1 +1,5 @@
-# go-crud-mysql
+# Simple Project CRUD Golang & MySQL
+
+## Requirement
+- MySQL
+- Validator V10
